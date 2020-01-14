@@ -1,0 +1,23 @@
+div.shru{
+	border-radius: 25px;
+  border: 2px solid #00000;
+  background: #EEEEEE;
+  padding: 20px; 
+  width: 500px;
+  height: 500px;
+	margin-left: 700px;
+	margin-right: 750px;
+}
+.button {
+  background-color: #013220 ;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}

@@ -1,0 +1,100 @@
+<html> 
+<head>
+ <title>VegiGo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="css/style.css" type="text/css" rel="stylesheet"/>
+ <link rel = "icon" href =  
+"images/vegigo.png" type = "image/x-icon"> 
+</head>
+<body background="images/bgd.jpg">
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <div class="shru">
+        <center><h3 class="text-center">Welcome to VegiGo!</h3></center>
+            <br></br>
+            <center>
+               <div class="category_div" id="category_div">
+            <select name="state" class="button" id="state" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+                <option value="blanks">Select State</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Goa">Goa</option>
+            </select>
+        </div>
+            </center>
+          <br></br>
+          <center>
+               <div class="sub_category_div" id="sub_category_div">
+                <script type="text/javascript" language="JavaScript">
+                document.write('<select name="subcategory" id="code" class="button"><option value="blankc">Please select VegiGo Centre Code</option></select>')
+            </script>
+            <noscript>
+              <select name="subcategory" id="subcategory">
+                    <option value="blankc">Please select VegiGo Centre Code</option>
+                </select>
+            </noscript>
+        </div>
+           <br></br>
+           <center>
+          <div class="form-group">
+            <button id="proceed" class="button" onclick="proceed()">Proceed</button>
+          </div>
+        </center>
+        </div>
+      </div>
+<script>
+  // s contains the selected state and c the code
+  var s,c,e;
+  function dynamicdropdown(listindex)
+            {
+                document.getElementById("code").length = 0;
+                switch (listindex)
+                {
+                    case "Madhya Pradesh":
+                        s = "Madhya Pradesh";
+                        document.getElementById("code").options[0]=new Option("Please select VegiGo Centre Code","blankc");
+                        document.getElementById("code").options[1]=new Option("VG_MP_13000","VG_MP_13000");
+                        document.getElementById("code").options[2]=new Option("VG_MP_13001","VG_MP_13001");
+                       // getSelectedItem('code');
+                        break;
+                    
+                    case "Goa":
+                         s = "Goa";
+                        document.getElementById("code").options[0]=new Option("Please select VegiGo Centre Code","blankc")
+                        document.getElementById("code").options[1]=new Option("VG_GA_13000","VG_GA_13000");
+                        document.getElementById("code").options[2]=new Option("VG_GA_13001","VG_GA_13001");
+                        break;
+                   // default:
+                        
+                }
+                return true;
+            }
+function proceed(){
+ // console.log(c);
+  if(s == undefined){
+    alert("Please select both the fields");
+  }
+  else{
+    window.location="file:///home/lenovo/Desktop/VegiGo/public/index.html"
+  }
+} 
+</script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.6.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.6.2/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VegiGo</title>
+ <meta name="viewport" content="initial-scale=1.0">
+ <meta charset="utf-8">
+<link rel = "icon" href="images/vegigo.png" type = "image/x-icon">
+<style type="text/css">
+#map{
+height: 100%;
+background-color: grey;
+}
+#map_wrapper {
+    height: 400px;
+}
+
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}
+html{height: 100%}
+body{height:100%;margin:10;padding:0; background-color: lightgrey;}
+</style>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+</head>
+<body>
+<div id="map"></div>
+<div id="map_wrapper">
+    <div id="map_canvas" class="mapping"></div>
+</div>
+<script type="text/javascript">
+function initMap() {
+var map = new google.maps.Map(document.getElementById('map'),{
+zoom: 10,
+center: {lat: 22.5204, lng: 75.9207}
+});
+addMarker({coords:{lat: 22.5204, lng: 75.9207}});
+addMarker({
+	coords:{lat: 22.6858, lng: 75.8723},
+	iconImage:'http://maps.google.com/mapfiles/kml/pal3/icon23.png',
+	content: '<h3>Farmer details</h3>'
+	});
+addMarker({
+	coords:{lat: 22.7514, lng: 75.8892},
+	iconImage:'http://maps.google.com/mapfiles/kml/pal3/icon23.png',
+	content: '<h3>Farmer details</h3>'
+	});
+function addMarker(props){
+  var marker = new google.maps.Marker({
+  position: props.coords,
+  map: map,
+});
+  //check icon
+  if(props.iconImage){
+  	marker.setIcon(props.iconImage);
+  }
+  //check content
+  if(props.content){
+  	var infoWindow = new google.maps.InfoWindow({
+  		content: props.content
+  	});
+  	marker.addListener('click', function(){
+  		infoWindow.open(map,marker);
+  	})
+  }
+}
+}
+</script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBIO0hraouG6ogl1YUAN5SCmNC2B2407Io&callback=initMap" async defer></script>
+</body>
+</html>
